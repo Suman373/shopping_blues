@@ -21,10 +21,10 @@ import React from 'react';
 const ProductCard = ({ item, index }) => {
     return (
         <div className='bg-white h-fit w-[300px] pb-2' key={index}>
-            <img src={item?.images[0] ? item.images[0] : item.image} alt="product" />
-            <p>{item?.name || item?.title}</p>
+            <img src={item?.image ? item.image : item?.images[0]} alt="product" />
+            <p className='p-3'>{item?.name || item?.title}</p>
             <div className='flex justify-between items-center px-4 py-2'>
-                <p className='text-md font-semibold font-sans'>₹{item?.price}</p>
+                <p className='text-md font-semibold font-sans'>₹{item?.price*80}</p>
                 <button className='bg-orange text-white rounded-full px-5 py-2 text-sm'>
                     Add to Cart
                 </button> </div>
