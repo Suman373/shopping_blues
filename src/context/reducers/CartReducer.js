@@ -2,7 +2,8 @@
 const cartReducer = (state,action)=>{
     switch (action.type) {
         case 'ADD_TO_CART':
-            console.log(`Added product, ${action.payload}`);
+            console.log(`Added product, ${action.payload.name}`);
+            console.log(state);
             // update the state with new product in payload
             return {
                 ...state,

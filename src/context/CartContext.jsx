@@ -12,7 +12,11 @@ const initialState = {
 const CartContext = createContext(initialState);
 
 // hook to use our cart
-export const useCart = useContext(CartContext);
+export const useCart = () =>{
+    const context = useContext(CartContext);
+    if(context === undefined) throw new Error("useCart must be used inside the CartContext");
+    return context;
+}
 
 // provider wrapper, allows all children to get update on context changes 
 export const CartProvider = ({children})=>{

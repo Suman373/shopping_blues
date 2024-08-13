@@ -8,21 +8,27 @@ const Home = () => {
     const [fetchedProducts, setFetchedProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const fetchProducts = async()=>{
+    const fetchProducts = async(abortController)=>{
         try {
-            const data = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/products?categoryId=2`);
+            setIsLoading(true);
+            const data = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/products?categoryId=2`,{signal:abortController.signal});
             if(data?.data){
                 console.log(data?.data);
                 setFetchedProducts(data?.data);
                 toast.success("Fetched products");
             }
         } catch (error) {
-            console.log(error.message);
+            axios.isCancel(error) ? console.log(`Cancelled request ${error}`) : console.log(error.message);
+            toast.error("Error fetching products. Try again later");
         }
+        setIsLoading(false);
     }
 
     useEffect(()=>{
-        fetchProducts();
+        const abortController = new AbortController();
+        fetchProducts(abortController);
+
+        return ()=> abortController.abort();
     },[]);
 
     return (
@@ -39,7 +45,8 @@ const Home = () => {
         </div>
         {/* Products */}
         <section className='min-h-[100vh] flex flex-col items-center justify-center py-10'>
-        <h1 className='text-xl font-bold justify-center m-10' id='products'>Our Products</h1>
+        <h1 className='text-xl font-bold justify-center mx-10' id='products'>Our Products</h1>
+        <div className='h-1 w-[500px] bg-orange text-center mx-auto mb-20'></div>
         <div className='grid grid-cols-4 gap-4'>
             {
                 fetchedProducts?.length > 0 && !isLoading ?
