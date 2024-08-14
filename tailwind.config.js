@@ -22,6 +22,7 @@ export default {
     },
     colors: {
       'blue': '#1fb6ff',
+      'black':'#000',
       'brand': '#fffff0',
       'white': '#ffffff',
       'red':'#D22B2B',
@@ -32,7 +33,8 @@ export default {
       'yellow': '#ffc82c',
       'gray-dark': '#273444',
       'gray': '#8492a6',
-      'gray-light': '#d3dce6'
+      'gray-light': '#d3dce6',
+      'transparent': 'rgba(0,0,0,0)',
     },
     plugins: [],
   }

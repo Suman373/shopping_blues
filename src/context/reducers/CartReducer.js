@@ -13,14 +13,14 @@ const cartReducer = (state,action)=>{
             console.log(`Removed product, ${action.payload}`);
             return{
                 ...state,
-                products: products.filter(product=> product.id !== action.payload.id),
+                products: state.products.filter(product=> product.id !== action.payload),
             }
         case 'UPDATE_CART':
             console.log(`Updated cart`);
             // payload {id,product{}}
             return{
                 ...state,
-                products: state.products.map((product)=>product.id === action.payload.id ? action.payload.product : product.id),
+                products: state.products.map((product)=>product.id === action.payload.id ? action.payload.product : product),
             }
         default:
             throw new Error(`No case for ${action.type} in switch case`);

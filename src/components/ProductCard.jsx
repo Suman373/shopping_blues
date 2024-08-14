@@ -21,14 +21,15 @@ import { useCart } from '../context/CartContext';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ item, index }) => {
+const ProductCard = ({ animateConfetti, item, index }) => {
   const { addProduct, state } = useCart();
   const [prodInCart, setProdInCart] = useState(false);
   const handleAddProduct = () => {
+    animateConfetti();
     addProduct({
       id: item.id,
       name: item.name || item.title,
-      price: item.price,
+      price: item.price*80,
       qty: 1
     });
     toast.success("Item added to cart");
@@ -41,7 +42,7 @@ const ProductCard = ({ item, index }) => {
 
   return (
     <div className='bg-white h-fit w-[300px] pb-2' key={index}>
-      <img src={item?.image ? item.image : item?.images[0]} alt="product" />
+      <div className='overflow-hidden'><img className='hover:scale-110 transition-transform duration-400' src={item?.image ? item.image : item?.images[0]} alt="product" /></div>
       <p className='p-3'>{item?.name || item?.title}</p>
       <div className='flex justify-between items-center px-4 py-2'>
         <p className='text-md font-semibold font-sans'>₹{item?.price * 80}</p>

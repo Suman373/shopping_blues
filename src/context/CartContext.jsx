@@ -25,8 +25,8 @@ export const CartProvider = ({children})=>{
     // define action functions
     const addProduct = (product)=> dispatch(addToCart(product));
     const removeProduct = (id)=> dispatch(removeFromCart(id));
-    const updateProdcut = (product,id)=> dispatch(updateCart(id,product));
+    const updateProduct = (id,product)=> dispatch(updateCart(id,product));
 
-    return <CartContext.Provider value={{state,addProduct,removeProduct,updateProdcut}}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{state,addProduct,removeProduct,updateProduct}}>{children}</CartContext.Provider>
 
 }
