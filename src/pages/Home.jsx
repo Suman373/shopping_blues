@@ -87,7 +87,7 @@ const Home = () => {
             </div>
             {/* Products */}
             <section className='min-h-[100vh] flex flex-col items-center justify-center py-10 '>
-                <h1 className='font-bold text-dark-brown text-center text-[52px] md:text-xl lg:text-xxl mx-10' id='products'>Our Products</h1>
+                <h1 className='font-bold text-dark-brown text-center text-[52px] md:text-xl mx-10' id='products'>Our Products</h1>
                 <div className='h-1 w-[100px] md:w-[400px] bg-orange text-center mx-auto mb-20'></div>
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4'>
                     {
@@ -110,7 +110,7 @@ const Home = () => {
             </section>
             {/* Sponsors */}
             <section className='min-h-[100vh] flex flex-col items-center justify-center py-10'>
-                <h1 className='font-bold text-dark-brown text-center text-[52px] md:text-xl lg:text-xxl mx-10' id='sponsors'>Our Sponsors</h1>
+                <h1 className='font-bold text-dark-brown text-center text-[52px] md:text-xl mx-10' id='sponsors'>Our Sponsors</h1>
                 <div className='h-1 w-[100px] md:w-[400px] bg-orange text-center mx-auto mb-20'></div>
                 <div className='min-h-fit flex flex-wrap items-start justify-center p-3 m-4 gap-2'>
                   {sponsors?.map((item,index)=><span className='text-xl lg:text-xxl p-2 text-gray-dark'>{item}</span>)}
