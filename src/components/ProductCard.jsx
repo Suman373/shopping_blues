@@ -29,7 +29,7 @@ const ProductCard = ({ animateConfetti, item, index }) => {
     addProduct({
       id: item.id,
       name: item.name || item.title,
-      price: item.price*80,
+      price: Math.ceil(item?.price * 80),
       qty: 1
     });
     toast.success("Item added to cart");
@@ -41,11 +41,11 @@ const ProductCard = ({ animateConfetti, item, index }) => {
   },[handleAddProduct])
 
   return (
-    <div className='bg-white h-fit w-[300px] pb-2' key={index}>
-      <div className='overflow-hidden'><img className='hover:scale-110 transition-transform duration-400' src={item?.image ? item.image : item?.images[0]} alt="product" /></div>
+    <div className='bg-white h-[450px] w-[340px] pb-2' key={index}>
+      <div className='overflow-hidden'><img className='hover:scale-110 h-[300px] object-center object-contain transition-transform duration-400' src={item?.image} alt="product" /></div>
       <p className='p-3'>{item?.name || item?.title}</p>
       <div className='flex justify-between items-center px-4 py-2'>
-        <p className='text-md font-semibold font-sans'>₹{item?.price * 80}</p>
+        <p className='text-md font-semibold font-sans'>₹{Math.ceil(item?.price * 80)}</p>
         {
           !prodInCart ?
             <button onClick={handleAddProduct} className='bg-orange text-white rounded-full px-5 py-2 text-sm'>

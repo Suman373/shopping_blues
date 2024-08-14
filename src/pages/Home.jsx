@@ -3,11 +3,11 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import ProductCard from '../components/ProductCard';
 import confettiGIF from '../assets/confetti.gif';
-import myAbstractBg from '../assets/myabstract.png';
 import ProductSk from '../components/ProductSk';
-import { FaApple, FaAmazon  } from "react-icons/fa";
+import { FaApple, FaAmazon, FaCheck  } from "react-icons/fa";
 import { SiSamsung, SiNike, SiFlipkart   } from "react-icons/si";
-import Footer from '../components/Footer';
+import tshirtImg from '../assets/tshirt.png';
+import shoeImg from '../assets/shoe.png';
 
 const Home = () => {
 
@@ -22,6 +22,11 @@ const Home = () => {
         <SiNike/>
     ]
 
+    const whyUsPoints = [
+        "Fast Orders", "Easy Returns", "Secured Transactions", "24x7 Customer Support", "Loyalty Rewards", 
+        "Best Shopping Experience", "Smooth Logistics", "Competitive Prices"
+    ]
+
 
     const animateConfetti = () => {
         setConfetti(true);
@@ -31,7 +36,7 @@ const Home = () => {
     const fetchProducts = async (abortController) => {
         try {
             setIsLoading(true);
-            const data = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/products?categoryId=2`, { signal: abortController.signal });
+            const data = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}`, { signal: abortController.signal });
             if (data?.data) {
                 console.log(data?.data);
                 setFetchedProducts(data?.data);
@@ -41,7 +46,7 @@ const Home = () => {
             axios.isCancel(error) ? console.log(`Cancelled request ${error}`) : console.log(error.message);
             toast.error("Error fetching products. Try again later");
         }
-        setTimeout(()=>setIsLoading(false),4000);
+        setTimeout(()=>setIsLoading(false),2000);
     }
 
     useEffect(() => {
@@ -59,14 +64,26 @@ const Home = () => {
             </div>}
             {/* Banner */}
             <div className='relative min-h-screen flex flex-col items-center justify-center z-10'>
-                <img className='absolute opacity-80 -z-10 w-screen h-screen' src={myAbstractBg} alt="background" />
-                <h1 className='text-xxl font-bold text-black'>Shopping.Blues</h1>
-                <p className='text-lg my-2 font-semibold'>Find the best products at best prices</p>
-                <p className='text-md'>Discover Deals That Dazzle and Savings That Shine.</p>
-                <p className='text-md'>Your Ultimate Shopping Destination Awaits!</p>
+                <img src={tshirtImg} className='absolute h-80 top-[60%] left-[5%] z-0 transform -rotate-45 opacity-15' alt="tshirt" />
+                <img src={shoeImg} className='absolute h-60 top-[50%] right-[5%] z-0 transform rotate-45 opacity-15' alt="shoe" />
+                <h1 className='text-xxl font-bold text-dark-brown'>Shopping.Blues</h1>
+                <p className='text-lg my-2 font-semibold text-dark-brown'>Find the best products at best prices</p>
+                <p className='text-md text-light-brown font-semibold'>Discover Deals That Dazzle and Savings That Shine.</p>
+                <p className='text-md text-light-brown font-semibold'>Your Ultimate Shopping Destination Awaits!</p>
                 <a href="#products" className="my-8 border-2 border-black px-10 py-3 rounded-[40px] font-semibold text-center">
                     See Products
                 </a>
+                <h3 className='text-md text-light-brown m-2 font-bold'>Why us?</h3>
+                <div className='min-w-fit p-4 grid grid-cols-4 gap-4 my-3 '>
+                    {
+                        whyUsPoints.map((item,index)=> 
+                            <div className='flex items-center justify-start gap-2 text-dark-brown' key={index}>
+                                <FaCheck className='text-xs text-light-brown'/>
+                                <h3 className='text-base font-bold'>{item}</h3>
+                            </div>
+                        )
+                    }
+                </div>
             </div>
             {/* Products */}
             <section className='min-h-[100vh] flex flex-col items-center justify-center py-10'>
@@ -76,14 +93,11 @@ const Home = () => {
                     {
                         fetchedProducts?.length > 0 && !isLoading ?
                             fetchedProducts?.map((item, index) => {
-                                // filter items with image(s) only
-                                if (item.image || item.images) {
-                                    return <ProductCard
-                                        animateConfetti={animateConfetti}
-                                        key={index}
-                                        item={item}
-                                    />
-                                } else return null;
+                                return <ProductCard
+                                animateConfetti={animateConfetti}
+                                key={index}
+                                item={item}
+                            />
                             }
                             )
                             :
@@ -102,7 +116,6 @@ const Home = () => {
                   {sponsors?.map((item,index)=><span className='text-xxl p-2 text-gray-dark'>{item}</span>)}
                 </div>
             </section>
-            <Footer/>
         </>
     )
 }

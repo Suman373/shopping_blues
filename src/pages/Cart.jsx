@@ -24,7 +24,7 @@ const Cart = () => {
     }, [state]);
 
     return (
-        <div className='min-h-screen mx-8 my-4 p-5'>
+        <div className='min-h-screen mx-8 mt-4 p-5'>
             <h1 className='font-semibold text-lg text-center'>My Shopping Cart</h1>
             <div className='h-1 w-[500px] bg-orange text-center mx-auto my-4'></div>
             {/* cart items */}
