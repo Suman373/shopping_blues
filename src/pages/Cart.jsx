@@ -24,9 +24,9 @@ const Cart = () => {
     }, [state]);
 
     return (
-        <div className='min-h-screen mx-8 mt-4 p-5'>
-            <h1 className='font-semibold text-lg text-center'>My Shopping Cart</h1>
-            <div className='h-1 w-[500px] bg-orange text-center mx-auto my-4'></div>
+        <div className='min-h-screen mt-4 p-5'>
+            <h1 className='font-bold text-center text-dark-brown text-[48px] md:text-xl lg:text-xxl' id='sponsors'>My Shopping Cart</h1>
+            <div className='h-1 w-[100px] md:w-[400px] bg-orange text-center mx-auto mb-20'></div>
             {/* cart items */}
             <section className='flex flex-col items-center justify-start gap-2'>
                 {state.products?.length > 0 ?
