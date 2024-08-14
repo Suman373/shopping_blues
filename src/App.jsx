@@ -11,7 +11,7 @@ function App() {
   return (
     <CartProvider>
       <BRouter>
-        <div className='min-h-screen bg-gradient-to-b from-brand to-white '>
+        <div className='min-h-screen w-screen bg-gradient-to-b from-brand to-white '>
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />}></Route>
