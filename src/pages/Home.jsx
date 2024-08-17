@@ -63,18 +63,15 @@ const Home = () => {
                 <img className='h-60 w-fit fixed right-0' src={confettiGIF} />
             </div>}
             {/* Banner */}
-            <div className='relative min-h-screen flex flex-col items-center justify-center z-10 '>
-                <img src={tshirtImg} className='absolute h-80 top-[60%] left-[5%] z-0 transform -rotate-45 opacity-15' alt="tshirt" />
-                <img src={shoeImg} className='absolute h-60 top-[50%] right-[5%] z-0 transform rotate-45 opacity-15' alt="shoe" />
-                <h1 className='font-bold text-dark-brown text-[52px] md:text-xl lg:text-xxl'>Shopping.Blues</h1>
+            <div className='relative min-h-screen flex flex-col items-center justify-center z-10 px-4 md:px-8 '>
+                <h1 className='font-bold text-dark-brown text-[42px] md:text-xl lg:text-xxl'>Shopping.<span className='text-black'>Blues</span></h1>
                 <p className='text-md md:text-lg text-center my-2 font-semibold text-dark-brown'>Find the best products at best prices</p>
-                <p className='text-md md:text-lg text-center text-light-brown font-semibold'>Discover Deals That Dazzle and Savings That Shine.</p>
-                <p className='text-md md:text-lg text-center text-light-brown font-semibold'>Your Ultimate Shopping Destination Awaits!</p>
+                <p className='text-base md:text-lg text-center text-light-brown font-semibold'>Discover deals that dazzle and savings that shine.</p>
                 <a href="#products" className="my-8 border-2 border-black px-10 py-3 rounded-[40px] font-semibold text-center">
                     See Products
                 </a>
                 <h3 className='text-md text-light-brown m-2 font-bol'>Why us?</h3>
-                <div className='min-w-fit p-4 grid grid-cols-2 md:grid-cols-4 gap-4 my-3'>
+                <div className='min-w-fit p-4 grid grid-cols-2 md:grid-cols-4 place-content-center gap-4 my-3'>
                     {
                         whyUsPoints.map((item,index)=> 
                             <div className='flex items-center justify-start gap-2 text-dark-brown' key={index}>
@@ -87,7 +84,7 @@ const Home = () => {
             </div>
             {/* Products */}
             <section className='min-h-[100vh] flex flex-col items-center justify-center py-10 '>
-                <h1 className='font-bold text-dark-brown text-center text-[52px] md:text-xl mx-10' id='products'>Our Products</h1>
+                <h1 className='font-bold text-dark-brown text-center text-[42px] md:text-xl mx-10' id='products'>Our Products</h1>
                 <div className='h-1 w-[100px] md:w-[400px] bg-orange text-center mx-auto mb-20'></div>
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4'>
                     {
@@ -110,7 +107,7 @@ const Home = () => {
             </section>
             {/* Sponsors */}
             <section className='min-h-[100vh] flex flex-col items-center justify-center py-10'>
-                <h1 className='font-bold text-dark-brown text-center text-[52px] md:text-xl mx-10' id='sponsors'>Our Sponsors</h1>
+                <h1 className='font-bold text-dark-brown text-center text-[42px] md:text-xl mx-10' id='sponsors'>Our Sponsors</h1>
                 <div className='h-1 w-[100px] md:w-[400px] bg-orange text-center mx-auto mb-20'></div>
                 <div className='min-h-fit flex flex-wrap items-start justify-center p-3 m-4 gap-2'>
                   {sponsors?.map((item,index)=><span className='text-xl lg:text-xxl p-2 text-gray-dark'>{item}</span>)}

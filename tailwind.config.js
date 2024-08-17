@@ -11,6 +11,7 @@ export default {
         'xl':'5rem',
         'lg':'2.5rem',
         'md':'1.5rem',
+        'base':'1.2rem',
         's':'1rem'
       },
     },

@@ -25,7 +25,7 @@ const Cart = () => {
 
     return (
         <div className='min-h-screen mt-4 p-5'>
-            <h1 className='font-bold text-center text-dark-brown text-[48px] md:text-xl' id='sponsors'>My Shopping Cart</h1>
+            <h1 className='font-bold text-center text-dark-brown text-[42px] md:text-xl' id='sponsors'>My Shopping Cart</h1>
             <div className='h-1 w-[100px] md:w-[400px] bg-orange text-center mx-auto mb-20'></div>
             {/* cart items */}
             <section className='flex flex-col items-center justify-start gap-2'>
@@ -36,7 +36,7 @@ const Cart = () => {
                     :
                     <div>
                         <p className='text-md text-orange text-center m-3'>Your cart is empty</p>
-                        <p className='text-sm text-center'>Looks like you have added nothing to your cart. Go explore the top categories.</p>
+                        <p className='text-base md:text-md text-center'>Looks like you have added nothing to your cart. Go explore the top categories.</p>
                     </div>
                 }
             </section>
